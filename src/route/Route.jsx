@@ -11,9 +11,10 @@ import { SideBarPrivate } from '../layout/private/SideBar.Private'
 export const PublicRoute = [
     {
         id: '1',
-        path: '/about',
-        element: <About />,
+        path: '/',
+        element: <Home />,
     },
+
     {
         id: '2',
         path: '/clients',
@@ -31,8 +32,8 @@ export const PublicRoute = [
     },
     {
         id: '5',
-        path: '/',
-        element: <Home />,
+        path: '/about',
+        element: <About />,
     },
     {
         id: '6',
@@ -48,11 +49,6 @@ export const PublicRoute = [
         id: '8',
         path: '/team',
         element: <Team />,
-    },
-    {
-        id: '9',
-        path: '/sidebarprivate',
-        element: <SideBarPrivate />,
     },
 
 ]
