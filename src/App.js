@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {!accesType === 1 ? (
+        {accesType === 1 ? (
           <Main>
             <Routes>
               {PublicRoute.map((item) => (
@@ -28,7 +28,7 @@ function App() {
         ) : (
           <MainPrivate>
             <Routes>
-              {PublicRoute.map((item) => (
+              {PrivateRoute.map((item) => (
                 <Route key={item.id} path={item.path} element={item.element} />
               ))}
             </Routes>
