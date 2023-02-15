@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {accesType === 1 ? (
+        {!accesType === 1 ? (
           <Main>
             <Routes>
               {PublicRoute.map((item) => (
