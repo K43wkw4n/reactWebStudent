@@ -10332,3 +10332,95 @@ body.sidebar-toggled footer.sticky-footer {
     background-color: blue;
     color:#fff
 }
+
+.border-top-primary {
+  border-top: 0.25rem solid #4e73df !important;
+}
+
+.main {
+  width: 50%;
+  margin: 50px auto;
+} /* Bootstrap 5 text input with search icon */
+.has-search .form-control {
+  padding-right: 2.375rem;
+}
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.search {
+  font-size: 16px;
+}
+
+.form-element {
+  position: relative;
+}
+
+.search input {
+  /* background: #fff;
+  border: 1px solid #aaa; */
+  /* border-radius: 5px; */
+  /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
+}
+
+.search input {
+  text-indent: 1em;
+}
+
+.search .icon-svg {
+  position: absolute;
+  top: 3PX;
+  right: 10px;
+  bottom: 0;
+ 
+}
+
+.pagination {
+  width: 100%;
+}
+
+.pagination li {
+  border: 1px solid #dddfeb;
+  height: 40px;
+  width: 40px;
+  margin-left: 1px;
+  margin-right: 1px;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #4e73df;
+  background-color: #fff;
+}
+
+.pagination li a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.pagination .disabled {
+  cursor: default;
+  background-color: #e7e7e7 !important;
+}
+
+.pagination .disabled a {
+  cursor: default;
+}
+
+.pagination .active {
+  cursor: default;
+  background-color: #4e73df !important;
+}
+
+.pagination .active a {
+  cursor: default;
+  background-color: #4e73df !important;
+}
