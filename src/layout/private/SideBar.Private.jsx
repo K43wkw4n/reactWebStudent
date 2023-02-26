@@ -34,7 +34,6 @@ export const SideBarPrivate = ({ children }) => {
                             </form>
 
                             <ul className="navbar-nav ml-auto">
-
                                 <li className="nav-item dropdown no-arrow d-sm-none">
                                     <a className="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

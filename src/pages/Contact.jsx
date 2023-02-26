@@ -1,20 +1,22 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { ValidateFormContact } from "./validate-form/ValidateContact";
 
 const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-
         <div className="section-title">
           <h2>Contact Us</h2>
           <p>Contact us the get started</p>
         </div>
 
         <div className="row">
-
-          <div className="col-lg-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div
+            className="col-lg-5 d-flex align-items-stretch"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <div className="info">
               <div className="address">
                 <i className="bi bi-geo-alt"></i>
@@ -36,7 +38,6 @@ const Contact = () => {
 
               {/* <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe> */}
             </div>
-
           </div>
 
           {/* <div className="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
@@ -67,14 +68,25 @@ const Contact = () => {
                             <div className="text-center"><button type="submit">Send Message</button></div>
                         </form>
                     </div> */}
-          <div className="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <div
+            className="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <Formik
               enableReinitialize={true}
-              initialValues={{ name: '', email: '', subject: '', message: '', phoneNumber: '', status: '' }}
+              initialValues={{
+                name: "",
+                email: "",
+                subject: "",
+                message: "",
+                phoneNumber: "",
+                status: "",
+              }}
               validationSchema={ValidateFormContact}
               onSubmit={(values) => {
                 let data = { ...values };
-                console.log('data : ' + JSON.stringify(data))
+                console.log("data : " + JSON.stringify(data));
               }}
             >
               {({
@@ -93,16 +105,39 @@ const Contact = () => {
                     <div className="form-group">
                       <Field component="div" name="status">
                         สถานะภาพ :{" "}
-                        <input type="radio" name="status" value="นักศึกษา" className={(errors.name && touched.name ? " is-invalid" : "")} />
+                        <input
+                          type="radio"
+                          name="status"
+                          value="นักศึกษา"
+                          className={
+                            errors.name && touched.name ? " is-invalid" : ""
+                          }
+                        />
                         <label htmlFor="student">นักศึกษา</label>
-                        <input type="radio" name="status" value="บุคคลากรมหาวิทยาลัย" className={(errors.name && touched.name ? " is-invalid" : "")} />
-                        <label htmlFor="universityPersonnel">บุคคลากรมหาวิทยาลัย</label>
-                        <input type="radio" name="status" value="บุคคลภายนอก" className={(errors.name && touched.name ? " is-invalid" : "")} />
+                        <input
+                          type="radio"
+                          name="status"
+                          value="บุคคลากรมหาวิทยาลัย"
+                          className={
+                            errors.name && touched.name ? " is-invalid" : ""
+                          }
+                        />
+                        <label htmlFor="universityPersonnel">
+                          บุคคลากรมหาวิทยาลัย
+                        </label>
+                        <input
+                          type="radio"
+                          name="status"
+                          value="บุคคลภายนอก"
+                          className={
+                            errors.name && touched.name ? " is-invalid" : ""
+                          }
+                        />
                         <label htmlFor="outsider">บุคคลภายนอก</label>
                         <ErrorMessage
-                          name='status'
-                          component='div'
-                          className='invalid-feedback'
+                          name="status"
+                          component="div"
+                          className="invalid-feedback"
                         />
                       </Field>
                     </div>
@@ -115,13 +150,16 @@ const Contact = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.name}
-                        className={"form-control" + (errors.name && touched.name ? " is-invalid" : "")}
+                        className={
+                          "form-control" +
+                          (errors.name && touched.name ? " is-invalid" : "")
+                        }
                         placeholder="ชื่อ-สกุล"
                       />
                       <ErrorMessage
-                        name='name'
-                        component='div'
-                        className='invalid-feedback'
+                        name="name"
+                        component="div"
+                        className="invalid-feedback"
                       />
                     </div>
                     <div className="form-group col-md-6">
@@ -136,34 +174,39 @@ const Contact = () => {
                               /[^A-Za-z_.#?!@$%^&*0-9]/gi,
                               ""
                             )
-                          )
+                          );
                         }}
                         onBlur={handleBlur}
                         value={values.email}
-                        className={"form-control" + (errors.email && touched.email ? " is-invalid" : "")}
+                        className={
+                          "form-control" +
+                          (errors.email && touched.email ? " is-invalid" : "")
+                        }
                         placeholder="อีเมลล์"
                       />
                       <ErrorMessage
-                        name='email'
-                        component='div'
-                        className='invalid-feedback'
+                        name="email"
+                        component="div"
+                        className="invalid-feedback"
                       />
                     </div>
                     <div className="form-group mt-3">
                       <label htmlFor="name">เบอร์โทรศัพท์</label>
                       <input
-                        className={"form-control" + (errors.phoneNumber && touched.phoneNumber ? " is-invalid" : "")}
+                        className={
+                          "form-control" +
+                          (errors.phoneNumber && touched.phoneNumber
+                            ? " is-invalid"
+                            : "")
+                        }
                         type="text"
-                        rows='auto'
+                        rows="auto"
                         name="phoneNumber"
                         onChange={(e) => {
                           setFieldValue(
                             "phoneNumber",
-                            e.target.value.replace(
-                              /[^0-9]/gi,
-                              ""
-                            )
-                          )
+                            e.target.value.replace(/[^0-9]/gi, "")
+                          );
                         }}
                         onBlur={handleBlur}
                         value={values.phoneNumber}
@@ -171,17 +214,22 @@ const Contact = () => {
                         placeholder="เบอร์โทรศัพท์"
                       />
                       <ErrorMessage
-                        name='phoneNumber'
-                        component='div'
-                        className='invalid-feedback'
+                        name="phoneNumber"
+                        component="div"
+                        className="invalid-feedback"
                       />
                     </div>
                     <div className="form-group mt-3">
                       <label htmlFor="name">เรื่อง</label>
                       <input
-                        className={"form-control" + (errors.subject && touched.subject ? " is-invalid" : "")}
+                        className={
+                          "form-control" +
+                          (errors.subject && touched.subject
+                            ? " is-invalid"
+                            : "")
+                        }
                         type="text"
-                        rows='auto'
+                        rows="auto"
                         name="subject"
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -190,15 +238,20 @@ const Contact = () => {
                         placeholder="เรื่อง"
                       />
                       <ErrorMessage
-                        name='subject'
-                        component='div'
-                        className='invalid-feedback'
+                        name="subject"
+                        component="div"
+                        className="invalid-feedback"
                       />
                     </div>
                     <div className="form-group mt-3">
                       <label htmlFor="name">รายละเอียด</label>
                       <textarea
-                        className={"form-control" + (errors.message && touched.message ? " is-invalid" : "")}
+                        className={
+                          "form-control" +
+                          (errors.message && touched.message
+                            ? " is-invalid"
+                            : "")
+                        }
                         name="message"
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -207,9 +260,9 @@ const Contact = () => {
                         placeholder="รายละเอียด"
                       />
                       <ErrorMessage
-                        name='message'
-                        component='div'
-                        className='invalid-feedback'
+                        name="message"
+                        component="div"
+                        className="invalid-feedback"
                       />
                     </div>
                   </div>
@@ -222,10 +275,9 @@ const Contact = () => {
             </Formik>
           </div>
         </div>
-
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Contact;
