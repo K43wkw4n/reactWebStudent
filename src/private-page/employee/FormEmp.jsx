@@ -6,6 +6,8 @@ import Dropzone from "react-dropzone";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { BsCalendarDate } from "react-icons/bs";
+// import { DatePickerTH } from "../../components/DatePickerTH";
+import { SearchAddress } from "../../components/SearchAddress";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
@@ -58,22 +60,24 @@ function FormEmp() {
             }) => (
               <Form onSubmit={handleSubmit} className="php-email-form">
                 <div className="row">
-                  <div className="col-3" style={{borderWidth:1}}>
-                    <Dropzone
-                      onDrop={(acceptedFiles) => console.log(acceptedFiles)}
-                    >
-                      {({ getRootProps, getInputProps }) => (
-                        <section>
-                          <div {...getRootProps()}>
-                            <input {...getInputProps()} />
-                            <p>
-                              Drag 'n' drop some files here, or click to select
-                              files
-                            </p>
-                          </div>
-                        </section>
-                      )}
-                    </Dropzone>
+                  <div className="col-3" style={{ borderWidth: 1 }}>
+                    <div className="border px-5">
+                      <Dropzone
+                        onDrop={(acceptedFiles) => console.log(acceptedFiles)}
+                      >
+                        {({ getRootProps, getInputProps }) => (
+                          <section>
+                            <div {...getRootProps()}>
+                              <input {...getInputProps()} />
+                              <p className="px-4">อัพโหลดรูปภาพโปรไฟล์</p>
+                              <p className="">
+                                PNG, JPG, JPEG ขนาดไม่เกิน 10MB
+                              </p>
+                            </div>
+                          </section>
+                        )}
+                      </Dropzone>
+                    </div>
                   </div>
                   <div className="row col-9">
                     <div className="form-group col-md-4">
@@ -147,6 +151,7 @@ function FormEmp() {
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
                       />
+                      {/* <DatePickerTH/> */}
                       <div style={{ position: "absolute", right: 23, top: 36 }}>
                         <BsCalendarDate size={20} />
                       </div>
@@ -315,7 +320,22 @@ function FormEmp() {
                     />
                   </div>
                   <div className="form-group col-md-4">
-                    <label htmlFor="name">ค้นหาที่อยู่</label>
+                    <SearchAddress
+                      title="ค้นหาที่อยู่"
+                      placeholder="- ค้นหาที่อยู่ -"
+                      returnAddress={(e) => {
+                        setFieldValue(
+                          "addressHomeFullAddress",
+                          `ต.${e.subdistrictName} อ.${e.districtName} จ.${e.provinceName} ${e.postCode}
+                        `
+                        );
+                      }}
+                      className={
+                        "form-control pl-5" +
+                        (errors.name && touched.name ? " is-invalid" : "")
+                      }
+                    />
+                    {/* <label htmlFor="name">ค้นหาที่อยู่</label>
                     <input
                       type="text"
                       name="name"
@@ -327,16 +347,17 @@ function FormEmp() {
                         (errors.name && touched.name ? " is-invalid" : "")
                       }
                       placeholder="-ค้นหาที่อยู่-"
-                    />
+                    /> */}
                   </div>
 
                   <div className="form-group col-md-4">
-                    <label htmlFor="name">
+                    <label htmlFor="addressHomeFullAddress">
                       ตำบล/อำเภอ/จังหวัด/รหัสไปรษณีย์
                     </label>
                     <input
                       type="text"
-                      name="name"
+                      name="addressHomeFullAddress"
+                      value={values.addressHomeFullAddress}
                       className={
                         "form-control" +
                         (errors.name && touched.name ? " is-invalid" : "")

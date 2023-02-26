@@ -1,11 +1,11 @@
 import React from "react";
 
 const About = () => {
-    return (
-        <>
-            <section id="contact" className="contact">
-                <div className="container" data-aos="fade-up">
-{/* 
+  return (
+    <>
+      <section id="contact" className="contact">
+        <div className="container" data-aos="fade-up">
+          {/* 
                     <div className="section-title">
                         <h2>Contact Us</h2>
                         <p>Contact us the get started</p>
@@ -35,7 +35,7 @@ const About = () => {
 
                         </div>
                     </div> */}
-                    {/* <div className="">
+          {/* <div className="">
                         <div className="col-lg-7 mt-5 mt-lg-10 d-flex align-items-stretch m-auto" data-aos="fade-up" data-aos-delay="200">
                             <form action="forms/contact.php" method="post" role="form" className="php-email-form">
                                 <div className="row">
@@ -66,11 +66,10 @@ const About = () => {
                         </div>
 
                     </div> */}
-
-                </div>
-            </section>
-        </>
-    )
-}
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default About;
