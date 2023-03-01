@@ -7,7 +7,7 @@ import { getProject } from "../../services/Project_service";
 import ShowData from "./ShowData";
 import { ConfirmDialog } from "../../components/AlertDialog";
 
-const ShowProject = () => {
+const ShowCertificate = () => {
   const projectStatus = systemSetting.ProjectStatus;
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -60,6 +60,7 @@ const ShowProject = () => {
                 initialValues={{
                   projectName: "",
                   projectStatus: "",
+                  trainingDate: "",
                 }}
                 onSubmit={(values) => {
                   showData(values.projectName);
@@ -94,24 +95,19 @@ const ShowProject = () => {
                       </div>
 
                       <div className="form-group col-md-2">
-                        <label htmlFor="years">ปี พ.ศ.</label>
+                        <label htmlFor="years">วันที่อบรม</label>
                         <DatePickerTH
+                          title="วันที่อบรม"
                           editable={false}
+                          errors={errors}
+                          touched={touched}
+                          value={values.trainingDate}
                           maxDate={new Date()}
-                          onlyYearPicker
-                          format="YYYY"
-                          id="startYear"
-                          value={
-                            values.startYear
-                              ? new Date((values.startYear - 543).toString())
-                              : ""
-                          }
+                          format="DD/MM/YYYY"
                           name="startYear"
                           onChange={(date) => {
                             setFieldValue("startYear", date.format());
                           }}
-                          errors={errors}
-                          touched={touched}
                         />
                       </div>
 
@@ -157,4 +153,4 @@ const ShowProject = () => {
     </Fragment>
   );
 };
-export default ShowProject;
+export default ShowCertificate;

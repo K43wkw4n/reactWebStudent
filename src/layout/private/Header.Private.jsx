@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export const HeaderPrivate = () => {
   return (
     <ul
@@ -119,9 +121,8 @@ export const HeaderPrivate = () => {
         >
           <div className="bg-white py-2 collapse-inner rounded">
             <h6 className="collapse-header">ข้อมูลโครงการบริการวิชาการ</h6>
-            <a className="collapse-item" href="login.html">
-              ข้อมูลบุคลากร
-            </a>
+            <NavLink to="/show-certificate" className="collapse-item">ใบประกาศนียบัตร</NavLink>
+            <NavLink to="/project/show-project" className="collapse-item">ข้อมูลบุคลากร</NavLink>
             {/* <a className="collapse-item" href="register.html">
               Register
             </a>

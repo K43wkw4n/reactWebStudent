@@ -22,10 +22,7 @@ function ShowData({ data, pagin, changePage, changePageSize, deleteData }) {
             </select>
           </div>
           <div>
-            <NavLink
-              to="/project/create"
-              className="btn btn-info btn-md"
-            >
+            <NavLink to="/project/create" className="btn btn-info btn-md">
               <i className="fa fa-plus-circle pr-1"></i>
               เพิ่ม
             </NavLink>
@@ -57,14 +54,8 @@ function ShowData({ data, pagin, changePage, changePageSize, deleteData }) {
                 <td>{item.projectName}</td>
                 <td></td>
                 <td>
-                  <button className="btn btn-warning btn-circle btn-sm mx-1">
-                    <i className="bi bi-pencil-square"></i>
-                  </button>
-                  <button
-                    onClick={() => deleteData(item.id)}
-                    className="btn btn-danger btn-circle btn-sm  mx-1"
-                  >
-                    <i className="fa fa-remove"></i>
+                  <button className="btn btn-success btn-circle btn-sm mx-1">
+                    <i className="fa fa-print"></i>
                   </button>
                 </td>
               </tr>
